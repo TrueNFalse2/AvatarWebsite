@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>My Profile</h1>
+    </header>
+
+    <div class="profile-container">
+        <img id="profile-avatar" src="default-avatar.png" alt="User Avatar" class="avatar">
+
+        <h2 id="profile-name">John Doe</h2>
+        <p><strong>Email:</strong> <span id="profile-email">johndoe@example.com</span></p>
+        <p><strong>Location:</strong> <span id="profile-location">New York, USA</span></p>
+        <p><strong>Favorite Avatar Style:</strong> <span id="profile-avatar-type">Realistic</span></p>
+        <p><strong>Bio:</strong> <span id="profile-bio">"A tech enthusiast who loves designing avatars and exploring new technologies."</span></p>
+
+        <button id="clear-profile">Reset Profile</button>
+
+    </div>
+
+    <script>
+        // Retrieve and display user data from localStorage
+        document.getElementById('profile-name').textContent = localStorage.getItem('name') || "John Doe";
+        document.getElementById('profile-email').textContent = localStorage.getItem('email') || "johndoe@example.com";
+        document.getElementById('profile-location').textContent = localStorage.getItem('location') || "New York, USA";
+        document.getElementById('profile-avatar-type').textContent = localStorage.getItem('avatarType') || "Realistic";
+        document.getElementById('profile-bio').textContent = localStorage.getItem('bio') || "A tech enthusiast who loves designing avatars and exploring new technologies.";
+
+        // Retrieve and display user avatar image
+        const avatarImage = localStorage.getItem('avatarImage');
+        if (avatarImage) {
+            document.getElementById('profile-avatar').src = avatarImage;
+        }
+
+        // Function to clear user data
+        document.getElementById('clear-profile').addEventListener('click', function () {
+            localStorage.clear();
+            alert("Profile data has been reset!");
+            location.reload();
+        });
+    </script>
+
+<!-- Navigation Buttons -->
+<div class="nav-buttons">
+    <a href="ThirdWebsite.html" class="nav-btn"> ⬅️ Previous Page</a>
+    <a href="FirstWebsite.html" class="nav-btn"> ➡️ HomePage</a>
+</div>
+
+</body>
+</html>

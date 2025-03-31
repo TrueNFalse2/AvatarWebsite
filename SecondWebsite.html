@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Build your own Avatar!</h1>
+        <p>Fill in your details to generate your profile.</p>
+    </header>
+
+    <hr>
+
+    <section>
+        <h2>Enter Your Details</h2>
+        <form id="avatarForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="avatar-type">Select Avatar Type:</label>
+            <select id="avatar-type" name="avatar-type">
+                <option value="Cartoon">Cartoon</option>
+                <option value="Realistic">Realistic</option>
+                <option value="Pixel Art">Pixel Art</option>
+            </select>
+
+            <label for="avatar-img">Upload Avatar Image:</label>
+            <input type="file" id="avatar-img" accept="image/*">
+
+            <p><strong>Avatar Preview:</strong></p>
+            <img id="avatar-preview" src="default-avatar.png" alt="Avatar Preview" class="avatar-preview">
+
+            <label for="bio">Short Bio:</label>
+            <textarea id="bio" name="bio" rows="3"></textarea>
+
+            <button type="submit">Save & View Profile</button>
+        </form>
+    </section>
+
+    <p><a href="profile.html" class="btn">Go to Profile</a></p>
+
+    <script>
+        document.getElementById('avatarForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            // Save form data to localStorage
+            localStorage.setItem('name', document.getElementById('name').value);
+            localStorage.setItem('email', document.getElementById('email').value);
+            localStorage.setItem('location', document.getElementById('location').value);
+            localStorage.setItem('avatarType', document.getElementById('avatar-type').value);
+            localStorage.setItem('bio', document.getElementById('bio').value);
+
+            // Save the avatar image (Base64 encoding)
+            const file = document.getElementById('avatar-img').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    localStorage.setItem('avatarImage', event.target.result);
+                    window.location.href = "profile.html"; // Redirect after saving image
+                };
+                reader.readAsDataURL(file);
+            } else {
+                window.location.href = "profile.html"; // Redirect if no image selected
+            }
+        });
+
+        // Preview uploaded avatar
+        document.getElementById('avatar-img').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('avatar-preview').src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+</body>
+</html>

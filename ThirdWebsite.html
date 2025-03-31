@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Visitor Feedback</h1>
+        <p>We appreciate your feedback! Please fill out the form to share your thoughts about the website.</p>
+    </header>
+
+    <hr>
+
+    <section>
+        <h2>Feedback Form</h2>
+        <form id="feedbackForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="rating">Website Rating:</label>
+            <select id="rating" name="rating">
+                <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                <option value="4">⭐⭐⭐⭐ - Very Good</option>
+                <option value="3">⭐⭐⭐ - Okay</option>
+                <option value="2">⭐⭐ - Needs Improvement</option>
+                <option value="1">⭐ - Poor</option>
+            </select>
+
+            <label for="message">Additional Comments:</label>
+            <textarea id="message" name="message" rows="3"></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>What Visitors Say</h2>
+        <div id="feedback-list"></div>
+        <button id="clear-feedback">Clear All Feedback</button>
+    </section>
+
+    <p><a href="FirstWebsite.html" class="btn">Back to Home</a></p>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get user input
+            const name = document.getElementById('name').value;
+            const rating = document.getElementById('rating').value;
+            const message = document.getElementById('message').value;
+
+            // Get existing feedback from localStorage
+            let feedbackArray = JSON.parse(localStorage.getItem('feedback')) || [];
+
+            // Add new feedback
+            feedbackArray.push({ name, rating, message });
+
+            // Save back to localStorage
+            localStorage.setItem('feedback', JSON.stringify(feedbackArray));
+
+            // Refresh feedback list
+            displayFeedback();
+            document.getElementById('feedbackForm').reset();
+        });
+
+        function displayFeedback() {
+            const feedbackList = document.getElementById('feedback-list');
+            feedbackList.innerHTML = "";
+
+            let feedbackArray = JSON.parse(localStorage.getItem('feedback')) || [];
+
+            if (feedbackArray.length === 0) {
+                feedbackList.innerHTML = "<p>No feedback yet.</p>";
+            } else {
+                feedbackArray.forEach((feedback, index) => {
+                    const feedbackDiv = document.createElement('div');
+                    feedbackDiv.classList.add('feedback-box');
+                    feedbackDiv.innerHTML = `
+                        <p><strong>${feedback.name}</strong> ⭐${'⭐'.repeat(feedback.rating - 1)}</p>
+                        <p>${feedback.message || "No additional comments."}</p>
+                    `;
+                    feedbackList.appendChild(feedbackDiv);
+                });
+            }
+        }
+
+        document.getElementById('clear-feedback').addEventListener('click', function () {
+            localStorage.removeItem('feedback');
+            displayFeedback();
+        });
+
+        // Load feedback on page load
+        displayFeedback();
+    </script>
+
+<!-- Navigation Buttons -->
+<div class="nav-buttons">
+    <a href="profile.html" class="nav-btn">⬅️ Back to Profile</a>
+    <a href="SecondWebsite.html" class="nav-btn">➡️ Create Avatar</a>
+</div>
+
+</body>
+</html>
