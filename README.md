@@ -4,7 +4,7 @@ This project is a multi-page website that allows users to build and view their o
 
 ## 🔧 Files Structure
 
-- `FirstWebsite.html` — **Homepage** with links to explore elements, videos, and other pages.
+- `index.html` — **Homepage** with links to explore elements, videos, and other pages.
 - `SecondWebsite.html` — **Avatar Creation Form** where users input data and upload their avatar.
 - `profile.html` — **User Profile Page** generated from the form data.
 - `ThirdWebsite.html` — **Visitor Feedback Page** where users can rate the site and leave comments.
@@ -15,7 +15,7 @@ This project is a multi-page website that allows users to build and view their o
 
 ## 📌 How It Works
 
-1. **User visits `FirstWebsite.html`**  
+1. **User visits `index.html`**  
    - Introduction to the site with navigation to the avatar form and feedback.
 
 2. **User goes to `SecondWebsite.html`**  
@@ -35,7 +35,7 @@ This project is a multi-page website that allows users to build and view their o
 
 ## ▶️ How to Run
 
-1. Open `FirstWebsite.html` in your browser to start.
+1. Open `index.html` in your browser to start.
 2. Make sure all files are in the **same folder**.
 3. Use a modern browser (Chrome/Edge/Firefox).
 4. Avatar images and feedback are stored using the browser's `localStorage`.
