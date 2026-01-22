@@ -52,9 +52,3 @@ This project is a multi-page website that allows users to build and view their o
 - Feedback form with local persistence
 - Navigation between pages
 
-
-
-## ✍️ Author
-
-**Lior Rimon**  
-Project for educational and portfolio purposes.
