@@ -1,4 +1,4 @@
-# 🌐 Avatar Website Project by Lior Rimon
+# 🌐 Avatar Website Project
 
 This project is a multi-page website that allows users to build and view their own avatar profiles, leave feedback, and navigate between various interactive pages.
 
