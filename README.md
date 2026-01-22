@@ -11,7 +11,6 @@ This project is a multi-page website that allows users to build and view their o
 - `styles.css` — Shared stylesheet that adds animation, layout, responsiveness, and color.
 - `default-avatar.png` — Placeholder image used if the user does not upload their own avatar.
 
----
 
 ## 📌 How It Works
 
@@ -31,8 +30,6 @@ This project is a multi-page website that allows users to build and view their o
    - Submits feedback and rating.
    - All feedback is stored and displayed using `localStorage`.
 
----
-
 ## ▶️ How to Run
 
 1. Open `index.html` in your browser to start.
@@ -40,16 +37,12 @@ This project is a multi-page website that allows users to build and view their o
 3. Use a modern browser (Chrome/Edge/Firefox).
 4. Avatar images and feedback are stored using the browser's `localStorage`.
 
----
-
 ## 🧠 Technologies Used
 
 - HTML5
 - CSS3 (with animations)
 - JavaScript (DOM, localStorage)
 - Responsive design techniques
-
----
 
 ## ✅ Features
 
@@ -59,13 +52,7 @@ This project is a multi-page website that allows users to build and view their o
 - Feedback form with local persistence
 - Navigation between pages
 
----
 
-## 📷 Screenshots
-
-> You can add screenshots of the form, profile, and feedback display here.
-
----
 
 ## ✍️ Author
 
